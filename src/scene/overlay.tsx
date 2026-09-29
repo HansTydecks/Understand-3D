@@ -103,6 +103,8 @@ export function OverlayProjector() {
   const dir = useRef(new Vector3());
   const ray = useRef(new Raycaster());
   useFrame(({ camera, size }) => {
+    // Kamera-Matrix dieses Bildes verwenden, nicht die vom letzten Rendern.
+    camera.updateMatrixWorld();
     const blockers = [...occluders];
     for (const [id, obj] of anchors) {
       const el = elements.get(id);

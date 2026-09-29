@@ -101,6 +101,9 @@ export function CameraRig({ orbit }: { orbit: boolean }) {
     // „Oben“ auf dem Bildschirm: Ableitung der Kameraposition nach φ – auch bei φ = 90° eindeutig.
     cam.up.set(-Math.sin(phi) * Math.sin(theta), Math.cos(phi), -Math.sin(phi) * Math.cos(theta));
     cam.lookAt(tx, ty, tz);
+    // Matrizen sofort aktualisieren: Die HTML-Beschriftungen werden noch in diesem Bild projiziert und
+    // würden sonst ein Bild hinter der Szene herlaufen (sichtbares Wackeln beim Drehen).
+    cam.updateMatrixWorld();
     // Bild etwas nach oben schieben, weil unten Kubi und das Steuerpult liegen.
     const shift = Math.round(size.height * 0.07);
     if (
