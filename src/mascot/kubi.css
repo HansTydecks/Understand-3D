@@ -1,0 +1,179 @@
+.kubi {
+  overflow: visible;
+  display: block;
+}
+.kubi-shadow {
+  fill: rgba(27, 42, 58, 0.16);
+  transform-origin: 100px 208px;
+}
+.kubi-bounce,
+.kubi-head,
+.kubi-arm,
+.kubi-eyes,
+.kubi-antenna,
+.kubi-blades {
+  transform-box: view-box;
+}
+.kubi-bounce {
+  transform-origin: 100px 200px;
+  animation: kubi-bob 2.6s ease-in-out infinite;
+}
+.kubi-eye {
+  transform-origin: 100px 112px;
+  animation: kubi-blink 4.2s infinite;
+}
+.kubi-antenna {
+  transform-origin: 100px 58px;
+  animation: kubi-wobble 3s ease-in-out infinite;
+}
+.kubi-blades {
+  transform-origin: 100px 28px;
+  animation: kubi-spin 0.35s linear infinite;
+}
+.kubi-arm-left {
+  transform-origin: 29px 118px;
+}
+.kubi-arm-right {
+  transform-origin: 171px 118px;
+}
+.kubi-mouth-talk {
+  transform-origin: 100px 140px;
+  animation: kubi-talk 0.28s ease-in-out infinite alternate;
+}
+.kubi-happy .kubi-bounce {
+  animation: kubi-jump 0.7s cubic-bezier(0.3, 0.7, 0.4, 1) infinite;
+}
+.kubi-happy .kubi-arm-left {
+  animation: kubi-cheer-left 0.7s ease-in-out infinite;
+}
+.kubi-happy .kubi-arm-right {
+  animation: kubi-cheer-right 0.7s ease-in-out infinite;
+}
+.kubi-wave .kubi-arm-right {
+  animation: kubi-wave 0.9s ease-in-out infinite;
+}
+.kubi-point .kubi-arm-right {
+  transform: rotate(-110deg);
+  transition: transform 0.3s;
+}
+.kubi-think .kubi-head {
+  transform-origin: 100px 190px;
+  animation: kubi-tilt 1.6s ease-in-out infinite;
+}
+.kubi-question {
+  transform-origin: 178px 46px;
+  animation: kubi-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+
+@keyframes kubi-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes kubi-blink {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+@keyframes kubi-wobble {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+@keyframes kubi-spin {
+  from {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.15);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes kubi-talk {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes kubi-jump {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.03, 0.97);
+  }
+  45% {
+    transform: translateY(-22px) scale(0.97, 1.03);
+  }
+}
+@keyframes kubi-cheer-left {
+  0%,
+  100% {
+    transform: rotate(40deg);
+  }
+  50% {
+    transform: rotate(150deg);
+  }
+}
+@keyframes kubi-cheer-right {
+  0%,
+  100% {
+    transform: rotate(-40deg);
+  }
+  50% {
+    transform: rotate(-150deg);
+  }
+}
+@keyframes kubi-wave {
+  0%,
+  100% {
+    transform: rotate(-120deg);
+  }
+  50% {
+    transform: rotate(-160deg);
+  }
+}
+@keyframes kubi-tilt {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+@keyframes kubi-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.calm .kubi *,
+.calm .kubi {
+  animation-duration: 0s !important;
+  animation-iteration-count: 1 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kubi *,
+  .kubi {
+    animation-iteration-count: 1 !important;
+  }
+}
