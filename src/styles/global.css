@@ -1408,10 +1408,10 @@ h3 {
 
 .start-grid {
   position: absolute;
-  left: -20%;
-  right: -20%;
-  bottom: -30%;
-  height: 70%;
+  left: -30%;
+  right: -30%;
+  bottom: -4%;
+  height: 85%;
   background:
     linear-gradient(#b8d3ef 1.5px, transparent 1.5px) 0 0 / 48px 48px,
     linear-gradient(90deg, #b8d3ef 1.5px, transparent 1.5px) 0 0 / 48px 48px,
