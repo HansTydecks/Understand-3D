@@ -58,10 +58,11 @@ Architektur und Invarianten: [`AGENTS.md`](AGENTS.md).
 
 Jeder Push auf `main` baut die App und veröffentlicht sie über GitHub Actions auf GitHub Pages
 (`.github/workflows/pages.yml`). Einmalig muss im Repository unter **Settings → Pages → Source**
-„GitHub Actions“ ausgewählt werden. Der Build liegt danach unter `https://<nutzer>.github.io/Understand-3D/`.
+„GitHub Actions“ ausgewählt werden. Die App läuft unter https://understand3d.tinfo.space
+(eigene Domain, eingetragen unter Settings → Pages → Custom domain) bzw. `https://<nutzer>.github.io/Understand-3D/`.
 
-Für einen Schulserver genügt `pnpm build` mit passender Basis, z. B. `PAGES_BASE=/understand3d/ pnpm build`,
-und das Kopieren des Ordners `dist/`.
+Gebaut wird mit relativen Pfaden (`PAGES_BASE=./`), deshalb funktioniert derselbe Build unter einer eigenen Domain,
+in einem Unterordner und auf jedem Schulserver: `PAGES_BASE=./ pnpm build` und den Ordner `dist/` kopieren.
 
 ---
 

@@ -27,10 +27,13 @@ jobs:
           node-version: "22.22.0"
       - run: corepack enable && pnpm --version
       - run: pnpm install --frozen-lockfile
-      - name: Build für den Unterordner /<repo>/
+      # Relative Pfade (./assets/…): funktionieren unter <nutzer>.github.io/<repo>/ und unter einer
+      # eigenen Domain im Wurzelverzeichnis (z. B. understand3d.tinfo.space). Ein fester Pfad /<repo>/
+      # führt auf der eigenen Domain zu 404 für Skript und CSS – die Seite bleibt weiß.
+      - name: Build mit relativen Pfaden
         run: pnpm run build
         env:
-          PAGES_BASE: /${{ github.event.repository.name }}/
+          PAGES_BASE: ./
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

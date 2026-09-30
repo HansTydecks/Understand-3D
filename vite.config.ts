@@ -4,7 +4,8 @@ import { fileURLToPath, URL } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-// GitHub Pages liefert die App unter /Understand-3D/ aus. Lokal und im Test läuft sie unter /.
+// Für GitHub Pages wird mit PAGES_BASE=./ gebaut (relative Pfade: eigene Domain und /<repo>/ gleichermaßen).
+// Lokal und im Test läuft die App unter /.
 const base = process.env.PAGES_BASE ?? "/";
 
 export default defineConfig({
